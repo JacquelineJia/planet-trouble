@@ -1,0 +1,23 @@
+{
+  "name": "planet-trouble",
+  "version": "1.0.0",
+  "description": "",
+  "main": "planet-trouble.js",
+  "scripts": {
+    "start": "http-server ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jacquelinejia/planet-trouble.git"
+  },
+  "author": "Jacqueline Jia",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jacquelinejia/planet-trouble/issues"
+  },
+  "homepage": "https://github.com/jacquelinejia/planet-trouble#readme",
+  "devDependencies": {
+    "http-server": "^0.10.0",
+    "webpack": "^3.6.0"
+  }
+}
