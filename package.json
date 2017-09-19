@@ -4,7 +4,8 @@
   "description": "",
   "main": "planet-trouble.js",
   "scripts": {
-    "start": "http-server ."
+    "start": "http-server .",
+    "build": "webpack --watch"
   },
   "repository": {
     "type": "git",
