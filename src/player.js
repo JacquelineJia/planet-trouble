@@ -20,34 +20,27 @@ export function drawPlayer() {
 
 document.addEventListener("keydown", keyDownHandler, false);
 function keyDownHandler(e) {
-  // left arrow
-  if(e.keyCode == 37) moveLeft();
-  // up arrow
-  else if(e.keyCode == 38) moveUp();
-  // right arrow
-  else if(e.keyCode == 39) moveRight();
-  // up arrow
-  else if(e.keyCode == 40) moveDown();
-
-  else testKeyCode(e.keyCode);
+  if(e.keyCode == 37) moveLeft(); // left arrow
+  else if(e.keyCode == 38) moveUp(); // up arrow
+  else if(e.keyCode == 39) moveRight(); // right arrow
+  else if(e.keyCode == 40) moveDown(); // up arrow
+  else printKeyCode(e.keyCode);
 }
 
-function testKeyCode(keyCode) {
-  alert(keyCode);
-}
+function printKeyCode(keyCode) {alert(keyCode);}
 
 function moveLeft() {
-  playerTemplate.x -= 20;
+  playerTemplate.x -= 25;
 }
 
 function moveUp() {
-  playerTemplate.y -= 20;
+  playerTemplate.y -= 25;
 }
 
 function moveRight() {
-  playerTemplate.x += 20;
+  playerTemplate.x += 25;
 }
 
 function moveDown() {
-  playerTemplate.y += 20;
+  playerTemplate.y += 25;
 }
