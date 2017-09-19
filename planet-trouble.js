@@ -74,7 +74,7 @@ const canvas = document.querySelector('#game');
 const ctx = canvas.getContext('2d');
 
 function game() {
-  ctx.clearRect(0, 0, 150, 75);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.fillStyle = "#FF0000";
   ctx.fillRect(0,0,150,75);
 
