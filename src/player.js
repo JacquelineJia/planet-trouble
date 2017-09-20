@@ -14,7 +14,6 @@ export class Player {
     this.height = 46;
     this.image = GHOST_IMAGE;
     this.direction = DOWN;
-    this.fillcolor = 'lightgreen';
     this.animationStep = 0;
   }
 
