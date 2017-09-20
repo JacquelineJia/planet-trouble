@@ -11,6 +11,7 @@ function game() {
   ctx.fillStyle = "#222222";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
+  player.update();
   player.draw(ctx);
 
   window.requestAnimationFrame(game);

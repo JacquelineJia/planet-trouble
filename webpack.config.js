@@ -8,6 +8,8 @@ module.exports = {
     filename: 'planet-trouble.js',
   },
   module: {
-    rules: []
+    rules: [
+      { test: /\.(png|jpe?g|gif)$/, loader: 'url-loader!img-loader' }, // TODO: don't use url loader
+    ]
   },
 };
