@@ -91,12 +91,14 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
+const player = new __WEBPACK_IMPORTED_MODULE_0__player__["a" /* Player */]();
+
 function game() {
   __WEBPACK_IMPORTED_MODULE_1__canvas__["b" /* ctx */].clearRect(0, 0, __WEBPACK_IMPORTED_MODULE_1__canvas__["a" /* canvas */].width, __WEBPACK_IMPORTED_MODULE_1__canvas__["a" /* canvas */].height);
   __WEBPACK_IMPORTED_MODULE_1__canvas__["b" /* ctx */].fillStyle = "#222222";
   __WEBPACK_IMPORTED_MODULE_1__canvas__["b" /* ctx */].fillRect(0, 0, __WEBPACK_IMPORTED_MODULE_1__canvas__["a" /* canvas */].width, __WEBPACK_IMPORTED_MODULE_1__canvas__["a" /* canvas */].height);
 
-  Object(__WEBPACK_IMPORTED_MODULE_0__player__["a" /* drawPlayer */])();
+  player.draw(__WEBPACK_IMPORTED_MODULE_1__canvas__["b" /* ctx */]);
 
   window.requestAnimationFrame(game);
 }
@@ -109,25 +111,30 @@ window.requestAnimationFrame(game);
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony export (immutable) */ __webpack_exports__["a"] = drawPlayer;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__canvas__ = __webpack_require__(0);
 
 
 
-const playerTemplate = {
-  x : __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* canvas */].width/2,
-  y : __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* canvas */].height/2,
-  fillcolor : 'lightgreen',
-  radius : 15
-};
+// let's make this a class! I broke some stuff but you can fix :)
+class Player {
+  constructor() {
+    this.x = __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* canvas */].width / 2;
+    this.y = __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* canvas */].heught / 2;
+    this.radius = 15;
+    this.fillcolor = 'lightgreen';
+  }
+  onKeyDown() {}
 
-function drawPlayer() {
-  __WEBPACK_IMPORTED_MODULE_0__canvas__["b" /* ctx */].beginPath();
-  __WEBPACK_IMPORTED_MODULE_0__canvas__["b" /* ctx */].arc(playerTemplate.x, playerTemplate.y, playerTemplate.radius, 0, Math.PI*2);
-  __WEBPACK_IMPORTED_MODULE_0__canvas__["b" /* ctx */].fillStyle = playerTemplate.fillcolor;
-  __WEBPACK_IMPORTED_MODULE_0__canvas__["b" /* ctx */].fill();
-  __WEBPACK_IMPORTED_MODULE_0__canvas__["b" /* ctx */].closePath();
+  draw(ctx) {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
+    ctx.fillStyle = this.fillcolor;
+    ctx.fill();
+    ctx.closePath();
+  }
 }
+/* harmony export (immutable) */ __webpack_exports__["a"] = Player;
+
 
 document.addEventListener("keydown", keyDownHandler, false);
 

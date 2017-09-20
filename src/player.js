@@ -1,19 +1,23 @@
 'use strict';
-import { canvas, ctx } from './canvas';
+import { canvas } from './canvas';
 
-const playerTemplate = {
-  x : canvas.width/2,
-  y : canvas.height/2,
-  fillcolor : 'lightgreen',
-  radius : 15
-};
+// let's make this a class! I broke some stuff but you can fix :)
+export class Player {
+  constructor() {
+    this.x = canvas.width / 2;
+    this.y = canvas.heught / 2;
+    this.radius = 15;
+    this.fillcolor = 'lightgreen';
+  }
+  onKeyDown() {}
 
-export function drawPlayer() {
-  ctx.beginPath();
-  ctx.arc(playerTemplate.x, playerTemplate.y, playerTemplate.radius, 0, Math.PI*2);
-  ctx.fillStyle = playerTemplate.fillcolor;
-  ctx.fill();
-  ctx.closePath();
+  draw(ctx) {
+    ctx.beginPath();
+    ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
+    ctx.fillStyle = this.fillcolor;
+    ctx.fill();
+    ctx.closePath();
+  }
 }
 
 document.addEventListener("keydown", keyDownHandler, false);
