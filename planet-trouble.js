@@ -69,7 +69,6 @@
 
 "use strict";
 
-
 const canvas = document.querySelector('#game');
 /* harmony export (immutable) */ __webpack_exports__["a"] = canvas;
 
@@ -86,7 +85,6 @@ const ctx = canvas.getContext('2d');
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__player__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__canvas__ = __webpack_require__(0);
-
 
 
 

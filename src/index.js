@@ -1,5 +1,4 @@
 'use strict';
-
 import { Player } from './player';
 import { canvas, ctx } from './canvas';
 
