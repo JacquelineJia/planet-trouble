@@ -33,7 +33,6 @@ export class Player {
     this.y += 25;
   }
 
-
   draw(ctx) {
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.radius, 0, Math.PI*2);
