@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -68,17 +68,31 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+
+
+const canvas = document.querySelector('#game');
+/* harmony export (immutable) */ __webpack_exports__["a"] = canvas;
+
+const ctx = canvas.getContext('2d');
+/* harmony export (immutable) */ __webpack_exports__["b"] = ctx;
+
+
+
+/***/ }),
+/* 1 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__player__ = __webpack_require__(1);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__canvas__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__player__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__canvas__ = __webpack_require__(0);
 
 
 
 
 
 const player = new __WEBPACK_IMPORTED_MODULE_0__player__["a" /* Player */]();
-/* harmony export (immutable) */ __webpack_exports__["player"] = player;
-
+document.addEventListener("keydown", e => player.onKeyDown(e.key), false);
 
 function game() {
   __WEBPACK_IMPORTED_MODULE_1__canvas__["b" /* ctx */].clearRect(0, 0, __WEBPACK_IMPORTED_MODULE_1__canvas__["a" /* canvas */].width, __WEBPACK_IMPORTED_MODULE_1__canvas__["a" /* canvas */].height);
@@ -94,13 +108,11 @@ window.requestAnimationFrame(game);
 
 
 /***/ }),
-/* 1 */
+/* 2 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__canvas__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(0);
-
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__canvas__ = __webpack_require__(0);
 
 
 
@@ -112,7 +124,31 @@ class Player {
     this.radius = 15;
     this.fillcolor = 'lightgreen';
   }
-  onKeyDown() {}
+
+  onKeyDown(key) {
+    if(key === 'ArrowLeft') this.moveLeft();
+    else if(key === 'ArrowUp') this.moveUp();
+    else if(key === 'ArrowRight') this.moveRight();
+    else if(key === 'ArrowDown') this.moveDown();
+    else printKeyCode(e.key);
+  }
+
+  moveLeft() {
+    this.x -= 25;
+  }
+
+  moveUp() {
+    this.y -= 25;
+  }
+
+  moveRight() {
+    this.x += 25;
+  }
+
+  moveDown() {
+    this.y += 25;
+  }
+
 
   draw(ctx) {
     ctx.beginPath();
@@ -125,50 +161,9 @@ class Player {
 /* harmony export (immutable) */ __webpack_exports__["a"] = Player;
 
 
-document.addEventListener("keydown", keyDownHandler, false);
-
-function keyDownHandler(e) {
-  if(e.key === 'ArrowLeft') moveLeft();
-  else if(e.key === 'ArrowUp') moveUp();
-  else if(e.key === 'ArrowRight') moveRight();
-  else if(e.key === 'ArrowDown') moveDown();
-  else printKeyCode(e.key);
-}
-
 function printKeyCode(keyCode) {
   alert(keyCode);
 }
-
-function moveLeft() {
-  __WEBPACK_IMPORTED_MODULE_1__index__["player"].x -= 25;
-}
-
-function moveUp() {
-  __WEBPACK_IMPORTED_MODULE_1__index__["player"].y -= 25;
-}
-
-function moveRight() {
-  __WEBPACK_IMPORTED_MODULE_1__index__["player"].x += 25;
-}
-
-function moveDown() {
-  __WEBPACK_IMPORTED_MODULE_1__index__["player"].y += 25;
-}
-
-
-/***/ }),
-/* 2 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-
-
-const canvas = document.querySelector('#game');
-/* harmony export (immutable) */ __webpack_exports__["a"] = canvas;
-
-const ctx = canvas.getContext('2d');
-/* harmony export (immutable) */ __webpack_exports__["b"] = ctx;
-
 
 
 /***/ })
