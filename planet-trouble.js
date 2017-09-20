@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -68,30 +68,17 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-
-
-const canvas = document.querySelector('#game');
-/* harmony export (immutable) */ __webpack_exports__["a"] = canvas;
-
-const ctx = canvas.getContext('2d');
-/* harmony export (immutable) */ __webpack_exports__["b"] = ctx;
-
-
-
-/***/ }),
-/* 1 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__player__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__canvas__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__player__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__canvas__ = __webpack_require__(2);
 
 
 
 
 
 const player = new __WEBPACK_IMPORTED_MODULE_0__player__["a" /* Player */]();
+/* harmony export (immutable) */ __webpack_exports__["player"] = player;
+
 
 function game() {
   __WEBPACK_IMPORTED_MODULE_1__canvas__["b" /* ctx */].clearRect(0, 0, __WEBPACK_IMPORTED_MODULE_1__canvas__["a" /* canvas */].width, __WEBPACK_IMPORTED_MODULE_1__canvas__["a" /* canvas */].height);
@@ -107,11 +94,13 @@ window.requestAnimationFrame(game);
 
 
 /***/ }),
-/* 2 */
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__canvas__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__canvas__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__index__ = __webpack_require__(0);
+
 
 
 
@@ -119,7 +108,7 @@ window.requestAnimationFrame(game);
 class Player {
   constructor() {
     this.x = __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* canvas */].width / 2;
-    this.y = __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* canvas */].heught / 2;
+    this.y = __WEBPACK_IMPORTED_MODULE_0__canvas__["a" /* canvas */].height / 2;
     this.radius = 15;
     this.fillcolor = 'lightgreen';
   }
@@ -151,20 +140,35 @@ function printKeyCode(keyCode) {
 }
 
 function moveLeft() {
-  playerTemplate.x -= 25;
+  __WEBPACK_IMPORTED_MODULE_1__index__["player"].x -= 25;
 }
 
 function moveUp() {
-  playerTemplate.y -= 25;
+  __WEBPACK_IMPORTED_MODULE_1__index__["player"].y -= 25;
 }
 
 function moveRight() {
-  playerTemplate.x += 25;
+  __WEBPACK_IMPORTED_MODULE_1__index__["player"].x += 25;
 }
 
 function moveDown() {
-  playerTemplate.y += 25;
+  __WEBPACK_IMPORTED_MODULE_1__index__["player"].y += 25;
 }
+
+
+/***/ }),
+/* 2 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+
+
+const canvas = document.querySelector('#game');
+/* harmony export (immutable) */ __webpack_exports__["a"] = canvas;
+
+const ctx = canvas.getContext('2d');
+/* harmony export (immutable) */ __webpack_exports__["b"] = ctx;
+
 
 
 /***/ })

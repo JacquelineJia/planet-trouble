@@ -3,7 +3,7 @@
 import { Player } from './player';
 import { canvas, ctx } from './canvas';
 
-const player = new Player();
+export const player = new Player();
 
 function game() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);

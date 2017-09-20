@@ -1,11 +1,12 @@
 'use strict';
 import { canvas } from './canvas';
+import { player } from './index';
 
 // let's make this a class! I broke some stuff but you can fix :)
 export class Player {
   constructor() {
     this.x = canvas.width / 2;
-    this.y = canvas.heught / 2;
+    this.y = canvas.height / 2;
     this.radius = 15;
     this.fillcolor = 'lightgreen';
   }
@@ -35,17 +36,17 @@ function printKeyCode(keyCode) {
 }
 
 function moveLeft() {
-  playerTemplate.x -= 25;
+  player.x -= 25;
 }
 
 function moveUp() {
-  playerTemplate.y -= 25;
+  player.y -= 25;
 }
 
 function moveRight() {
-  playerTemplate.x += 25;
+  player.x += 25;
 }
 
 function moveDown() {
-  playerTemplate.y += 25;
+  player.y += 25;
 }
