@@ -1,9 +1,7 @@
 'use strict';
+import { canvas, ctx } from './canvas';
 
-const canvas = document.querySelector('#game');
-const ctx = canvas.getContext('2d');
-
-var playerTemplate = {
+const playerTemplate = {
   x : canvas.width/2,
   y : canvas.height/2,
   fillcolor : 'lightgreen',
@@ -19,15 +17,18 @@ export function drawPlayer() {
 }
 
 document.addEventListener("keydown", keyDownHandler, false);
+
 function keyDownHandler(e) {
-  if(e.keyCode == 37) moveLeft(); // left arrow
-  else if(e.keyCode == 38) moveUp(); // up arrow
-  else if(e.keyCode == 39) moveRight(); // right arrow
-  else if(e.keyCode == 40) moveDown(); // up arrow
-  else printKeyCode(e.keyCode);
+  if(e.key === 'ArrowLeft') moveLeft();
+  else if(e.key === 'ArrowUp') moveUp();
+  else if(e.key === 'ArrowRight') moveRight();
+  else if(e.key === 'ArrowDown') moveDown();
+  else printKeyCode(e.key);
 }
 
-function printKeyCode(keyCode) {alert(keyCode);}
+function printKeyCode(keyCode) {
+  alert(keyCode);
+}
 
 function moveLeft() {
   playerTemplate.x -= 25;
