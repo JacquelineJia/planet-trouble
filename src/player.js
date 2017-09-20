@@ -1,7 +1,6 @@
 'use strict';
 import { canvas } from './canvas';
 
-// let's make this a class! I broke some stuff but you can fix :)
 export class Player {
   constructor() {
     this.x = canvas.width / 2;
