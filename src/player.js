@@ -2,6 +2,7 @@
 import { canvas } from './canvas';
 import GHOST from './images/ghost.png';
 import { UP, LEFT, RIGHT, DOWN } from './directions';
+import * as keyboard from './keyboard';
 
 const GHOST_IMAGE = new Image();
 GHOST_IMAGE.src = GHOST;
@@ -18,17 +19,23 @@ export class Player {
   }
 
   update() {
+    if(keyboard.check(keyboard.LEFT)) {
+      this.moveLeft();
+    }
+    if(keyboard.check(keyboard.RIGHT)) {
+      this.moveRight();
+    }
+    if(keyboard.check(keyboard.UP)) {
+      this.moveUp();
+    }
+    if(keyboard.check(keyboard.DOWN)) {
+      this.moveDown();
+    }
+
     this.animationStep += 0.2;
     if(this.animationStep >= 4) {
       this.animationStep = 0;
     }
-  }
-
-  onKeyDown(key) {
-    if(key === 'ArrowLeft')       this.moveLeft();
-    else if(key === 'ArrowUp')    this.moveUp();
-    else if(key === 'ArrowRight') this.moveRight();
-    else if(key === 'ArrowDown')  this.moveDown();
   }
 
   moveLeft() {

@@ -92,7 +92,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 const player = new __WEBPACK_IMPORTED_MODULE_0__player__["a" /* Player */]();
-document.addEventListener("keydown", e => player.onKeyDown(e.key), false);
 
 function game() {
   __WEBPACK_IMPORTED_MODULE_1__canvas__["b" /* ctx */].clearRect(0, 0, __WEBPACK_IMPORTED_MODULE_1__canvas__["a" /* canvas */].width, __WEBPACK_IMPORTED_MODULE_1__canvas__["a" /* canvas */].height);
@@ -117,6 +116,8 @@ window.requestAnimationFrame(game);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__images_ghost_png__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__images_ghost_png___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1__images_ghost_png__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__directions__ = __webpack_require__(4);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__keyboard__ = __webpack_require__(5);
+
 
 
 
@@ -133,22 +134,27 @@ class Player {
     this.height = 46;
     this.image = GHOST_IMAGE;
     this.direction = __WEBPACK_IMPORTED_MODULE_2__directions__["a" /* DOWN */];
-    this.fillcolor = 'lightgreen';
     this.animationStep = 0;
   }
 
   update() {
+    if(__WEBPACK_IMPORTED_MODULE_3__keyboard__["e" /* check */](__WEBPACK_IMPORTED_MODULE_3__keyboard__["b" /* LEFT */])) {
+      this.moveLeft();
+    }
+    if(__WEBPACK_IMPORTED_MODULE_3__keyboard__["e" /* check */](__WEBPACK_IMPORTED_MODULE_3__keyboard__["c" /* RIGHT */])) {
+      this.moveRight();
+    }
+    if(__WEBPACK_IMPORTED_MODULE_3__keyboard__["e" /* check */](__WEBPACK_IMPORTED_MODULE_3__keyboard__["d" /* UP */])) {
+      this.moveUp();
+    }
+    if(__WEBPACK_IMPORTED_MODULE_3__keyboard__["e" /* check */](__WEBPACK_IMPORTED_MODULE_3__keyboard__["a" /* DOWN */])) {
+      this.moveDown();
+    }
+
     this.animationStep += 0.2;
     if(this.animationStep >= 4) {
       this.animationStep = 0;
     }
-  }
-
-  onKeyDown(key) {
-    if(key === 'ArrowLeft')       this.moveLeft();
-    else if(key === 'ArrowUp')    this.moveUp();
-    else if(key === 'ArrowRight') this.moveRight();
-    else if(key === 'ArrowDown')  this.moveDown();
   }
 
   moveLeft() {
@@ -218,6 +224,44 @@ const RIGHT = Symbol('right');
 /* harmony export (immutable) */ __webpack_exports__["c"] = RIGHT;
 
 const DOWN = Symbol('down');
+/* harmony export (immutable) */ __webpack_exports__["a"] = DOWN;
+
+
+
+/***/ }),
+/* 5 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["e"] = check;
+
+document.addEventListener("keydown", keydown, false);
+document.addEventListener("keyup", keyup, false);
+
+const pressed = new Set();
+
+function keydown({ key }) {
+  pressed.add(key);
+}
+
+function keyup({ key }) {
+  pressed.delete(key);
+}
+
+function check(key) {
+  return pressed.has(key);
+}
+
+const LEFT = 'ArrowLeft';
+/* harmony export (immutable) */ __webpack_exports__["b"] = LEFT;
+
+const RIGHT = 'ArrowRight';
+/* harmony export (immutable) */ __webpack_exports__["c"] = RIGHT;
+
+const UP = 'ArrowUp';
+/* harmony export (immutable) */ __webpack_exports__["d"] = UP;
+
+const DOWN = 'ArrowDown';
 /* harmony export (immutable) */ __webpack_exports__["a"] = DOWN;
 
 
